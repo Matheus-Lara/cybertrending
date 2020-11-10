@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 //Informa que a classe é um service e implementa o serviço de noticias
 @Service
@@ -53,13 +54,6 @@ public class NoticiaServiceImpl implements NoticiaService {
 
     // Grava uma nova noticia no banco
     public Noticia insert(NoticiaDto noticia) {
-        var objNoticia = noticiaRepository.findOptionalByTagTwitter(noticia.getTagTwitter());
-
-        //Verifica se já existe uma noticia com a Tag informada
-        if(objNoticia.isPresent()){
-            //Caso exista retorna um JSON com exception de integração de dados onde a tag ja existe
-            throw new DataIntegrationException("Esta tag já possui notícia!");
-        }
 
         //salva os dados setando via builder
         return noticiaRepository.save(Noticia.builder()
@@ -83,4 +77,6 @@ public class NoticiaServiceImpl implements NoticiaService {
         //deleta do banco
         noticiaRepository.delete(objNoticia);
     }
+
+
 }
