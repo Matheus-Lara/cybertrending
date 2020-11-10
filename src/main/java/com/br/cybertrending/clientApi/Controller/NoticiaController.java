@@ -17,7 +17,7 @@ import java.util.stream.Collectors;
 @RestController
 
 //verificar a necessidade de usar CORS
-//@CrossOrigin
+@CrossOrigin
 
 //Mapeando a rota /noticia
 @RequestMapping(value = "/noticia")

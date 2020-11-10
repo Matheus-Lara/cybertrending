@@ -10,6 +10,6 @@ import java.util.Optional;
 @Repository
 public interface NoticiaRepository extends JpaRepository<Noticia, Integer> {
 
-    Optional<Noticia> findOptionalByTagTwitter(String tagTwitter);
+    Optional<Noticia> findOptionalByUrlNoticia(String urlNoticia);
 
 }

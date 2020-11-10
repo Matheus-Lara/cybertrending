@@ -54,6 +54,11 @@ public class NoticiaServiceImpl implements NoticiaService {
 
     // Grava uma nova noticia no banco
     public Noticia insert(NoticiaDto noticia) {
+        var objNoticia = noticiaRepository.findOptionalByUrlNoticia(noticia.getUrlNoticia());
+
+        if(objNoticia.isPresent()){
+            throw new DataIntegrationException("Esta notícia já existe");
+        }
 
         //salva os dados setando via builder
         return noticiaRepository.save(Noticia.builder()
