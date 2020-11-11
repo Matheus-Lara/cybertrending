@@ -16,7 +16,7 @@ import java.util.stream.Collectors;
 //Anota que Essa classe é um controller que segue o padrão Rest
 @RestController
 
-//verificar a necessidade de usar CORS
+//uso de CORS
 @CrossOrigin
 
 //Mapeando a rota /noticia
