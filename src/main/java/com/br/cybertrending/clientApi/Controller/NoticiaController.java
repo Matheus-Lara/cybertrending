@@ -13,13 +13,12 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.stream.Collectors;
 
-//Anota que Essa classe é um controller que segue o padrão Rest
 @RestController
 
-//uso de CORS
+//habilita utilização de CORS
 @CrossOrigin
 
-//Mapeando a rota /noticia
+//Mapea a rota pai Notícia
 @RequestMapping(value = "/noticia")
 
 public class NoticiaController {
@@ -27,8 +26,7 @@ public class NoticiaController {
     @Autowired
     NoticiaService noticiaService; //referência à camada Service de Noticia
 
-    //verificação para retornar com pagination
-    //Mapeando rota que retorna todas as noticias (verificar método de paginação).
+    //Mapeando rota que retorna todas as noticias
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public ResponseEntity<List<NoticiaDto>> getAll(){
 
@@ -75,6 +73,7 @@ public class NoticiaController {
 
     @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
     public ResponseEntity<?> delete(@PathVariable Integer id){
+
         noticiaService.delete(id);
         return ResponseEntity.status(HttpStatus.OK).build();
     }
