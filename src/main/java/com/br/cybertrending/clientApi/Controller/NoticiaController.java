@@ -75,7 +75,7 @@ public class NoticiaController {
     }
 
 
-    
+
 
 
     //retorna objeto atualizado validado pelo IP do usuário --> paliativo
@@ -120,6 +120,7 @@ public class NoticiaController {
                 objNoticiaIp.setVoteType(voteType);
             }
         }
+        objNoticiaIp.setIdNoticia(noticia.getId());
         noticiaIpRepository.save(objNoticiaIp);
 
         return noticiaService.update(noticia.getId(), noticia);
