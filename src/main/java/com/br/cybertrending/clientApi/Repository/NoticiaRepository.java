@@ -6,10 +6,7 @@ import org.springframework.stereotype.Repository;
 
 import java.util.Optional;
 
-//A annotation Informa que a uma interface de um repositório
 @Repository
 public interface NoticiaRepository extends JpaRepository<Noticia, Integer> {
-
     Optional<Noticia> findOptionalByUrlNoticia(String urlNoticia);
-
 }

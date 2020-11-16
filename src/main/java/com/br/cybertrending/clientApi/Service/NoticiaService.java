@@ -4,7 +4,6 @@ import com.br.cybertrending.clientApi.Dto.NoticiaDto;
 import com.br.cybertrending.clientApi.Entity.Noticia;
 
 import java.util.List;
-import java.util.Optional;
 
 public interface NoticiaService {
     Noticia find(int id);
