@@ -109,13 +109,17 @@ public class NoticiaController {
             } else {
                 switch(voteType){
                     case "U":
-                        noticia.setDownQtd(noticia.getDownQtd()-1);
+                        if(objNoticiaIp.getVoteType().equals("D"))
+                            noticia.setDownQtd(noticia.getDownQtd()-1);
                         noticia.setUpQtd(noticia.getUpQtd()+1);
                     break;
                     case "D":
-                        noticia.setUpQtd(noticia.getUpQtd()-1);
+                        if(objNoticiaIp.getVoteType().equals("U"))
+                            noticia.setUpQtd(noticia.getUpQtd()-1);
                         noticia.setDownQtd(noticia.getDownQtd()+1);
                     break;
+                    default:
+
                 }
                 objNoticiaIp.setVoteType(voteType);
             }
