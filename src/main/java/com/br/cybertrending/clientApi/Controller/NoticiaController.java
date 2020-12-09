@@ -66,7 +66,7 @@ public class NoticiaController {
         var objNoticia = this.updateVoteByType(noticiaService.find(id), Util.getClientIpAddress(request) ,"D");
         return ResponseEntity.ok(objNoticia.noticiaDto());
     }
-
+    
 
     @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
     public ResponseEntity<?> delete(@PathVariable Integer id){
