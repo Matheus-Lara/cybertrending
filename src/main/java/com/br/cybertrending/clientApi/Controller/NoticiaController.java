@@ -51,23 +51,6 @@ public class NoticiaController {
         return ResponseEntity.status(HttpStatus.CREATED).build();
     }
 
-
-    @RequestMapping(value = "/{id}/upvote", method = RequestMethod.PUT)
-    public ResponseEntity<NoticiaDto> updateUpvote(HttpServletRequest request, @PathVariable int id) {
-
-        var objNoticia = this.updateVoteByType(noticiaService.find(id), Util.getClientIpAddress(request) , "U");
-        return ResponseEntity.ok(objNoticia.noticiaDto());
-    }
-
-
-    @RequestMapping(value = "/{id}/downvote", method = RequestMethod.PUT)
-    public ResponseEntity<NoticiaDto> updateDownvote(HttpServletRequest request, @PathVariable int id) {
-
-        var objNoticia = this.updateVoteByType(noticiaService.find(id), Util.getClientIpAddress(request) ,"D");
-        return ResponseEntity.ok(objNoticia.noticiaDto());
-    }
-    
-
     @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
     public ResponseEntity<?> delete(@PathVariable Integer id){
         noticiaService.delete(id);
